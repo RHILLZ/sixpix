@@ -5,21 +5,36 @@ import 'package:sixpix/styles.dart';
 import 'package:sizer/sizer.dart';
 
 class TextInput extends GetWidget<AppController> {
-  const TextInput({super.key});
+  TextInput(
+      {super.key,
+      double? width,
+      required String hint,
+      Color? color,
+      required ValueSetter<String> changeValue})
+      : _width = width,
+        _hint = hint,
+        _color = color,
+        _changeValue = changeValue;
 
+  final double? _width;
+  final Color? _color;
+  final String _hint;
+  ValueSetter<String> _changeValue;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 80.w,
+      width: _width?.w ?? 80.w,
       height: 5.h,
       child: TextFormField(
-        onChanged: (value) => controller.searchQuery = value,
+        textInputAction: TextInputAction.go,
+        onChanged: _changeValue,
+        onFieldSubmitted: (value) => controller.search(),
         textAlign: TextAlign.center,
         showCursor: false,
         decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.white.withOpacity(.3),
-            hintText: 'What do you want to see?',
+            fillColor: _color ?? Colors.white.withOpacity(.3),
+            hintText: _hint,
             focusedBorder: OutlineInputBorder(
                 borderRadius: const BorderRadius.all(Radius.circular(50)),
                 borderSide: BorderSide(color: primaryColor.withOpacity(.5))),

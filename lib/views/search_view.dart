@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:sixpix/controllers/app_controller.dart';
 import 'package:sizer/sizer.dart';
@@ -29,7 +30,10 @@ class SearchView extends GetView<AppController> {
             SizedBox(
               height: 3.h,
             ),
-            const TextInput(),
+            TextInput(
+              changeValue: (value) => controller.searchQuery = value,
+              hint: 'What are you looking for?',
+            ),
             SizedBox(
               height: 3.h,
             ),

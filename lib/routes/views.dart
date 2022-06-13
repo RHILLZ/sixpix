@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:sixpix/bindings/initial_binding.dart';
 import 'package:sixpix/views/search_view.dart';
+import 'package:sixpix/views/showcase_view.dart';
 
 part 'routes.dart';
 
@@ -14,9 +15,9 @@ class Views {
         name: Routes.searchViewRoute,
         page: () => const SearchView(),
         binding: InitialBinding()),
-    // GetPage<ShowcaseView>(
-    //     name: Routes.showcaseViewRoute,
-    //     page: () => const ShowcaseView(),
-    //     binding: InitialBinding()),
+    GetPage<ShowcaseView>(
+        name: Routes.showcaseViewRoute,
+        page: () => ShowcaseView(),
+        binding: InitialBinding()),
   ];
 }
