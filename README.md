@@ -1,6 +1,9 @@
 # sixpix
 
-A new Flutter project.
+A simple Flutter project that uses a python based backend for fetching and
+displaying 6 images from a search query. This project uses the Pexels.com API.
+It includes Pagination as well as the ability to save a selected image to a local
+Downloads folder.
 
 ## Getting Started
 
